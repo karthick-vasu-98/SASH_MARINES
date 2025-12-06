@@ -175,7 +175,7 @@ ul {
     /* Header height + spacing */
     padding-bottom: 4rem;
     /* darker black gradient overlay for stronger contrast on hero image */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.45)), url('hero_bg_01.jpeg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.50)), url('hero_bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
