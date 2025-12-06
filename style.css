@@ -169,11 +169,13 @@ ul {
 }
 
 /* Hero Section */
+/* background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(225, 245, 254, 0.6)), url('hero_bg_01.jpeg'); */
 .hero {
     padding-top: 100px;
     /* Header height + spacing */
     padding-bottom: 4rem;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(225, 245, 254, 0.3)), url('hero_bg.png');
+    /* darker black gradient overlay for stronger contrast on hero image */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.45)), url('hero_bg_01.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -208,12 +210,12 @@ ul {
     font-size: 3.5rem;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: var(--dark-navy);
+    color: var(--white);
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: var(--text-grey);
+    color: var(--white);
     margin-bottom: 2.5rem;
 }
 
@@ -248,21 +250,25 @@ ul {
 
 .cert-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-    align-items: stretch;
+    /* desktop: 3 columns to showcase larger certificates */
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
 }
 
 .cert-badge {
     display: flex;
-    gap: 1rem;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+    /* allow the card to stretch to the image height */
+    align-items: stretch;
     background-color: var(--off-white);
-    padding: 1rem 1.25rem;
-    border-radius: 10px;
+    padding: 1rem;
+    border-radius: 12px;
     color: var(--dark-navy);
     transition: var(--transition);
     border: 1px solid #eef6fb;
+    text-align: center;
 }
 
 .cert-badge:hover {
@@ -287,6 +293,46 @@ ul {
     font-size: 0.9rem;
     color: var(--text-grey);
     line-height: 1.3;
+}
+
+/* certificate thumbnail */
+.cert-thumb {
+    display: block;
+    width: 100%;
+    /* allow the image to keep its natural height and aspect ratio */
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(10,10,10,0.06);
+}
+
+.cert-img {
+    width: 100%;
+    height: auto; /* show full image height */
+    object-fit: contain; /* preserve full image without cropping */
+    display: block;
+    transition: transform 0.28s ease, filter 0.28s ease;
+}
+
+.cert-thumb:hover .cert-img {
+    transform: scale(1.01);
+    filter: brightness(1.02);
+}
+
+/* Responsive: fewer columns on smaller screens */
+@media (max-width: 1200px) {
+    .cert-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+    .cert-thumb {
+        height: 160px;
+    }
 }
 
 /* Benefits Section */
@@ -429,7 +475,15 @@ ul {
     justify-content: center;
 }
 
+.service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .service-icon-overlay {
+    /* keep in case some icons remain elsewhere */
     font-size: 3rem;
     color: var(--primary-blue);
     opacity: 0.8;
