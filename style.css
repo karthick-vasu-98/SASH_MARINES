@@ -507,13 +507,21 @@ ul {
 
 .contact-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    /* single-column layout now that form is removed */
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    justify-items: center;
 }
 
 .contact-subtitle {
     color: #8892b0;
     margin-bottom: 3rem;
+}
+
+/* center contact-info block and limit width for readability */
+.contact-info {
+    max-width: 760px;
+    text-align: center;
 }
 
 .text-white {
@@ -522,14 +530,17 @@ ul {
 
 .contact-item {
     display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-item i {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--accent-blue);
-    margin-top: 0.2rem;
+    margin-top: 0;
+    margin-right: 0.6rem; /* spacing between icon and heading text */
 }
 
 .contact-item h5 {
